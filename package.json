@@ -1,0 +1,27 @@
+{
+  "name": "react-stateful-hoc",
+  "description": "Higher Order Component for demoing stateless functional React components",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "Patrick Marabeas <patrick@marabeas.io> (http://github.com/patrickmarabeas)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/patrickmarabeas/react-stateful-hoc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/patrickmarabeas/react-stateful-hoc/issues"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/babel src --out-dir dist",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "react": "^15.5.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1"
+  }
+}
