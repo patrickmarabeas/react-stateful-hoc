@@ -1,7 +1,7 @@
 {
   "name": "react-stateful-hoc",
   "description": "Higher Order Component for demoing stateless functional React components",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "author": "Patrick Marabeas <patrick@marabeas.io> (http://github.com/patrickmarabeas)",
   "repository": {
