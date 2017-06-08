@@ -2,6 +2,10 @@
 
 Higher Order Component for demoing stateless functional React components
 
+## Demo Sandbox
+
+[https://codesandbox.io/s/Mj5MMXG4R](https://codesandbox.io/s/Mj5MMXG4R)
+
 ## Usage
 
 > npm i -D react-stateful-hoc
@@ -25,6 +29,10 @@ const ClickerDemo = ClickerMock({
     this.setState((state, props) => ({
       value: clickerOnClick(state.value, prop)
     }));
+    
+    // *** or ***
+    
+    this.setState(onClickHandlerAlternate(this, value))
 
   }
 });
@@ -55,6 +63,14 @@ Clicker.defaultProps = {
 
 function onClickHandler(state, payload) {
   return state += payload;
+}
+
+// *** or ***
+
+function onClickHandlerAlternate(state, props) {
+  return {
+    value: state.value + props;
+  }
 }
 
 export { Clicker, onClickHandler };
