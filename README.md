@@ -17,7 +17,15 @@ const ClickerMock = StatefulHOC(Clicker);
 
 const ClickerDemo = ClickerMock({
   onClick(prop) {
+  
     this.setState({ value: onClickHandler(this.value, prop) });
+    
+    // *** or as a function ***
+    
+    this.setState((state, props) => ({
+      value: clickerOnClick(state.value, prop)
+    }));
+
   }
 });
 
