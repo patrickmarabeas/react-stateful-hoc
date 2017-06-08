@@ -14,31 +14,45 @@ Higher Order Component for demoing stateless functional React components
 /** App */
 
 import React from 'react';
+import { render } from 'react-dom';
 import StatefulHOC from 'react-stateful-hoc';
-import { Clicker, onClickHandler, onClickHandlerAlternate } from 'components/Clicker';
+import { Clicker, onClickHandler, onClickHandlerAlternate } from 'Components/Clicker';
 
 const ClickerMock = StatefulHOC(Clicker);
 
 const ClickerDemo = ClickerMock({
   onClick(prop) {
-  
     this.setState({ value: onClickHandler(this.value, prop) });
-    
-    // *** or as a function ***
-    
-    this.setState((state, props) => ({
-      value: clickerOnClick(state.value, prop)
-    }));
-    
-    // *** or ***
-    
-    this.setState(onClickHandlerAlternate(this, value))
-
-  }
+  },
 });
 
-const App = () => <ClickerDemo />;
+// *** or ***
+
+const ClickerDemo2 = ClickerMock({
+  value: 0,
+  onClick(prop) {
+    this.setState((state, props) => ({
+      value: onClickHandler(state.value, prop),
+    }));
+  },
+});
+
+// *** or ***
+
+const ClickerDemo3 = ClickerMock({
+  onClick(value) {
+    this.setState(onClickHandlerAlternate(this, value));
+  },
+});
+
+const App = () =>
+  <div>
+    <ClickerDemo />
+    <ClickerDemo2 />
+    <ClickerDemo3 />
+  </div>;
 render(<App />, document.getElementById('root'));
+
 ```
 
 ```
@@ -53,8 +67,8 @@ const Clicker = (props) => {
 };
 
 Clicker.propTypes = {
-  value: PropTypes.number.isRequired,
-  onClick: PropTypes.func.isRequired
+  value: propTypes.number.isRequired,
+  onClick: propTypes.func.isRequired
 };
 
 Clicker.defaultProps = {
@@ -69,7 +83,7 @@ function onClickHandler(state, payload) {
 
 function onClickHandlerAlternate(state, props) {
   return {
-    value: state.value + props;
+    value: state.value + props
   }
 }
 
