@@ -15,7 +15,7 @@ Higher Order Component for demoing stateless functional React components
 
 import React from 'react';
 import StatefulHOC from 'react-stateful-hoc';
-import { Clicker, onClickHandler } from 'components/Clicker';
+import { Clicker, onClickHandler, onClickHandlerAlternate } from 'components/Clicker';
 
 const ClickerMock = StatefulHOC(Clicker);
 
@@ -73,5 +73,5 @@ function onClickHandlerAlternate(state, props) {
   }
 }
 
-export { Clicker, onClickHandler };
+export { Clicker, onClickHandler, onClickHandlerAlternate };
 ```
