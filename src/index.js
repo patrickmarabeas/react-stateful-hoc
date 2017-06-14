@@ -1,5 +1,5 @@
 /**
- * react-stateful-hoc v0.1.2
+ * react-stateful-hoc v0.1.3
  * https://github.com/patrickmarabeas/react-stateful-hoc
  *
  * Copyright 2017, Patrick Marabeas http://marabeas.io
